@@ -1,6 +1,7 @@
-import { Clock, MapPin } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 import Reveal from './Reveal';
-import { hours, address } from '../data/studio';
+import { address, hours } from '../data/studio';
+import { visit } from '../data/images';
 
 export default function Visit() {
   return (
@@ -11,46 +12,47 @@ export default function Visit() {
           <h2 className="font-serif text-4xl text-ink sm:text-5xl">Location & hours</h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:items-center">
           <Reveal>
-            <div className="flex h-full flex-col rounded-3xl border border-line bg-paper p-8 sm:p-9">
-              <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-accent-soft p-3.5 text-accent">
-                <MapPin className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <h3 className="mt-6 font-serif text-2xl text-ink">Find the studio</h3>
-              <p className="mt-4 text-pretty leading-relaxed text-muted">
-                {address.line1}
-                <br />
-                {address.line2}
-              </p>
+            <div className="relative overflow-hidden rounded-3xl border border-line">
+              <img src={visit} alt="" aria-hidden="true" className="aspect-[16/10] w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-paper/40" />
+            </div>
+          </Reveal>
 
-              <div className="mt-8 rounded-2xl bg-paper-2 p-5">
-                <p className="text-sm text-muted">
-                  Parking available nearby. Two-wheelers can be parked right outside.
+          <div className="grid gap-6">
+            <Reveal delay={40}>
+              <div className="flex h-full flex-col rounded-3xl border border-line bg-surface p-8 sm:p-9">
+                <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-accent-soft p-3.5 text-accent">
+                  <MapPin className="h-6 w-6" strokeWidth={1.5} />
+                </span>
+                <h3 className="mt-6 font-serif text-2xl text-ink">Find the studio</h3>
+                <p className="mt-4 text-pretty leading-relaxed text-ink-soft">
+                  {address.line1}
+                  <br />
+                  {address.line2}
                 </p>
+                <p className="mt-4 text-sm text-muted">Parking available nearby.</p>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <Reveal delay={70}>
-            <div className="flex h-full flex-col rounded-3xl border border-line bg-paper p-8 sm:p-9">
-              <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-accent-soft p-3.5 text-accent">
-                <Clock className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <h3 className="mt-6 font-serif text-2xl text-ink">Opening hours</h3>
-              <ul className="mt-5 divide-y divide-line">
-                {hours.map((row) => (
-                  <li key={row.day} className="flex items-center justify-between py-3.5">
-                    <span className="text-ink-soft">{row.day}</span>
-                    <span className="font-medium text-ink">{row.time}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 text-sm text-muted">
-                Want a Sunday slot? Message us on WhatsApp and we&apos;ll find a time.
-              </p>
-            </div>
-          </Reveal>
+            <Reveal delay={80}>
+              <div className="flex h-full flex-col rounded-3xl border border-line bg-surface p-8 sm:p-9">
+                <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-accent-soft p-3.5 text-accent">
+                  <Clock className="h-6 w-6" strokeWidth={1.5} />
+                </span>
+                <h3 className="mt-6 font-serif text-2xl text-ink">Opening hours</h3>
+                <ul className="mt-5 divide-y divide-line">
+                  {hours.map((row) => (
+                    <li key={row.day} className="flex items-center justify-between py-3.5">
+                      <span className="text-ink-soft">{row.day}</span>
+                      <span className="font-medium text-ink">{row.time}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

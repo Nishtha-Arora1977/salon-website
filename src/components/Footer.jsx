@@ -1,4 +1,4 @@
-import { MessageCircle, Mail } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { brand } from '../data/studio';
 import { waLink } from '../lib/whatsapp';
 
@@ -19,7 +19,7 @@ export default function Footer() {
               {brand.name}
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Hair, skin and nail care in a warm, pressure-free studio.
+              Hair, skin and nail care in a calm, refined studio.
             </p>
           </div>
 
@@ -47,13 +47,6 @@ export default function Footer() {
               >
                 <MessageCircle className="h-4 w-4 text-accent" />
                 WhatsApp us
-              </a>
-              <a
-                href={`mailto:${brand.email}`}
-                className="flex items-center gap-3 text-sm text-ink-soft hover:text-accent"
-              >
-                <Mail className="h-4 w-4 text-accent" />
-                {brand.email}
               </a>
             </div>
           </div>

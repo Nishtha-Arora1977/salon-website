@@ -1,5 +1,16 @@
 import Reveal from './Reveal';
-import { gallery } from '../data/studio';
+import { gallery } from '../data/images';
+
+const captions = [
+  'Fresh balayage, finished with a gloss',
+  'Precision cut, styled to sit naturally',
+  'Soft glam for an evening out',
+  'Bridal styling with a trial look',
+  'Clean gel manicure with detail work',
+  'Calm facial with botanical extracts',
+  'Sleek blow-dry for a polished finish',
+  'Glow-up before the big day',
+];
 
 export default function Gallery() {
   return (
@@ -11,27 +22,22 @@ export default function Gallery() {
         </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {gallery.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <Reveal key={index} delay={index * 60}>
-                <figure className="group">
-                  <div
-                    className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line"
-                    style={{ background: `linear-gradient(135deg, ${item.tone[0]}, ${item.tone[1]})` }}
-                  >
-                    <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-white/30 blur-2xl" />
-                    <span className="absolute inset-0 flex items-center justify-center">
-                      <span className="flex items-center justify-center rounded-full bg-white/60 p-5 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="h-9 w-9 text-ink/70" strokeWidth={1.5} />
-                      </span>
-                    </span>
-                  </div>
-                  <figcaption className="mt-3 text-center text-sm text-muted">{item.caption}</figcaption>
-                </figure>
-              </Reveal>
-            );
-          })}
+          {gallery.map((src, index) => (
+            <Reveal key={src} delay={index * 60}>
+              <figure className="group">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line">
+                  <img
+                    src={src}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-paper/40" />
+                </div>
+                <figcaption className="mt-3 text-center text-sm text-muted">{captions[index]}</figcaption>
+              </figure>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

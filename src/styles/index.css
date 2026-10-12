@@ -2,16 +2,17 @@
 @source '../**/*.{js,jsx}';
 
 :root {
-  --paper: #f7faf8;
-  --paper-2: #eef3ef;
-  --ink: #1c2622;
-  --ink-soft: #41534c;
-  --muted: #6d7f77;
-  --line: #dde5df;
-  --line-strong: #c7d4cc;
-  --accent: #1f6a5f;
-  --accent-strong: #164e46;
-  --accent-soft: #e0efe9;
+  --paper: #0f1412;
+  --paper-2: #141b18;
+  --surface: #18221d;
+  --ink: #f3f7f5;
+  --ink-soft: #d6e2dc;
+  --muted: #b7c8be;
+  --line: rgba(243, 247, 245, 0.12);
+  --line-strong: rgba(243, 247, 245, 0.22);
+  --accent: #5fb89f;
+  --accent-strong: #7fcdb3;
+  --accent-soft: rgba(95, 184, 159, 0.16);
   --whatsapp: #22c55e;
   --whatsapp-strong: #16a34a;
 }
@@ -19,6 +20,7 @@
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-muted: var(--muted);
@@ -31,6 +33,7 @@
   --color-whatsapp-strong: var(--whatsapp-strong);
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-script: 'Great Vibes', 'Fraunces', cursive;
 }
 
 @layer base {
@@ -40,7 +43,7 @@
   }
 
   body {
-    background: var(--paper);
+    background: radial-gradient(120% 120% at 50% 0%, #16211d 0%, #0d1210 100%);
     color: var(--ink);
     font-family: var(--font-sans);
     font-feature-settings: 'ss01';
@@ -93,5 +96,9 @@
 
   .text-pretty {
     text-wrap: pretty;
+  }
+
+  .font-script {
+    font-family: var(--font-script);
   }
 }
